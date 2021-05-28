@@ -20,10 +20,12 @@ You may register an asset to be loaded in the Control Panel using the `script` a
 
 For your application specific modifications, `app` will probably do just fine as a vendor name.
 
+The code below should be added under AppServiceProvider, located in app/Providers/AppServiceProvider.php. Note the original AppSericeProvider.php file already has this code commented out towards the bottom of the file. You will need to add the .js and .css to the Statamic::script('app', 'cp); and Statamic::style('app','cp'); lines respectively.
+
 ``` php
 use Statamic\Statamic;
 
-class AppServiceProvider
+class AppServiceProvider extends ServiceProvider
 {
     public function boot()
     {
